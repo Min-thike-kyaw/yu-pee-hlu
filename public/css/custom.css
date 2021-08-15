@@ -1,0 +1,69 @@
+.bg-color{
+    background-color: #ede7f6;
+}
+.welcome-input{
+    color: black;
+    font-size: 18px;
+    height: 32px;
+    margin: 0;
+    border-radius:  9px 0 0 9px ;
+    
+}
+.btn-purple{
+    background-color: purple;
+    color: white;
+    font-size: 18px;
+    height: 32px;
+    margin: 0;
+    border-radius: 0 9px 9px 0;
+    
+}
+.form-group-custom{
+    background-color: white;
+    margin: 1.2rem 0;
+    padding: 1rem;
+    border-radius: 0.8rem;
+}
+
+/* welcome */
+.full-height {
+    height: 100vh;
+}
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.position-ref {
+    position: relative;
+}
+
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+
+.content {
+    text-align: center;
+}
+
+.title {
+    font-size: 60px;
+}
+
+.links > a {
+    color: #636b6f;
+    padding: 0 25px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.m-b-md {
+    margin-bottom: 30px;
+}
