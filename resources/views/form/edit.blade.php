@@ -75,7 +75,7 @@
 
             <div class="form-group form-group-custom">
                 <label for="other_looks_you_want">လိုချင်တဲ့ပုံစံကိုရေးပေးပါ </label>
-                <input type="text" name="look_you_want" class="form-control" required value="{{$form->other_looks_you_want}}">
+                <input type="text" name="other_looks_you_want" class="form-control" required value="{{$form->other_looks_you_want}}">
             </div>
             
 
