@@ -15,21 +15,34 @@ class CreateFormsTable extends Migration
     {
         Schema::create('forms', function (Blueprint $table) {
             $table->id();
-            $table->integer('age');
+           
             $table->string('city');
+
             $table->string('acc_name');
+            $table->string('acc_link');
+
+            $table->string('email');
+            
+            $table->string('age_you_want');
+            $table->integer('age');
+
             $table->tinyInteger('gender');
             $table->tinyInteger('gender_you_want');
-            $table->string('look_you_want');
-            $table->string('email');
+            
+            $table->tinyInteger('your_skin_tone');
             $table->tinyInteger('skin_tone_you_want');
-            $table->tinyInteger('height_you_want');
+            
             $table->integer('your_height_by_inch');
+            $table->tinyInteger('height_you_want');
+
             $table->tinyInteger('your_body_shape');
             $table->tinyInteger('body_shape_you_want');
-            $table->tinyInteger('your_look');
-            $table->string('age_you_want');
+
+            $table->string('your_look');
+            $table->string('other_looks_you_want');
+
             $table->string('code');
+
             $table->timestamps();
         });
     }

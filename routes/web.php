@@ -25,10 +25,11 @@ Route::get('/forms/{key}/response', 'FormController@response');
 Route::put('/forms/{key}', 'FormController@update');
 Route::post('/forms', 'FormController@store');
 
-Auth::routes(['register' => false]);
+Auth::routes();
 
-Route::get('/dashboard', 'AdminController@index')->name('home');
+Route::get('/dashboard', 'AdminController@index');
 Route::get('/admin/forms/{id}', 'AdminController@formDetail');
+Route::get('/admin/forms/{id}/delete', 'AdminController@deleteForm');
 Route::get('/admin/codes', 'AdminController@showCodes');
 Route::post('/admin/codes', 'AdminController@generateCode');
 Route::get('/admin/codes/{id}/delete', 'AdminController@deleteCode');
@@ -37,6 +38,10 @@ Route::get('/admin/codes/{id}/delete', 'AdminController@deleteCode');
 Route::get('/users', 'UserController@index');
 Route::get('/users/register', 'UserController@create');
 Route::post('/users', 'UserController@store');
+
+
+Route::get('/api/forms',"AdminController@apiForms");
+
 
 
 

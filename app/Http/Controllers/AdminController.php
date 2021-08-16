@@ -13,6 +13,16 @@ class AdminController extends Controller
         $this->middleware('auth');
     }
 
+    public function apiForms()
+    {
+        return response()->json([
+                "forms" => Form::all(),
+                'error' => false
+
+            ]
+        , 200);
+    }
+
     public function index()
     {
         return view('admin.home',["forms" => Form::all()->sortDesc()]);
@@ -41,5 +51,16 @@ class AdminController extends Controller
     {
         Code::find($id)->delete();
         return redirect('/admin/codes');
+    }
+
+    public function deleteForm($id)
+    {
+        $form = Form::find($id);
+        $code = Code::where('key',$form->code)->first();
+        if($code) {
+            $code->delete();
+        }
+        $form->delete();
+        return redirect('/dashboard');
     }
 }

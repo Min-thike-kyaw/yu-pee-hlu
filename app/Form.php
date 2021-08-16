@@ -6,15 +6,28 @@ use Illuminate\Database\Eloquent\Model;
 
 class Form extends Model
 {
+    protected $appends = [
+        "partner_gender",
+        "partner_skin_tone",
+        "partner_height",
+        "partner_body_shape",
+        "your_gender_text",
+        "your_body_shape_text",
+        "feet_inch",
+    ];
+
     protected $fillable = [
             'age' ,
             'city' ,
             'acc_name' ,
             'gender',
             'gender_you_want',
-            'look_you_want' ,
+            'your_look',
+            'acc_link',
+            'other_looks_you_want' ,
             'email',
             'skin_tone_you_want',
+            'your_skin_tone',
             'height_you_want',
             'your_height' ,
             'your_body_shape',
@@ -48,11 +61,12 @@ class Form extends Model
 
 
     //You
-    public function getYourLookTextAttribute()
-    {
-        return config("form")['your_look'][$this->your_look];
-    }
+    
     public function getYourGenderTextAttribute()
+    {
+        return config("form")['gender'][$this->gender];
+    }
+    public function getYourSkinToneTextAttribute()
     {
         return config("form")['gender'][$this->gender];
     }

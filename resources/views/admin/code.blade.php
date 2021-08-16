@@ -30,7 +30,14 @@
                             <td>{{$code->key}}</td>
                             
                             <td>{{$code->verified_at?? 'not yet'}}</td>
-                            <td><a href="/admin/codes/{{$code->id}}/delete" class="btn btn-danger" >Delete code</a></td>
+                            
+                            <td>
+                            
+
+
+                            <button value="copy" class="btn btn-outline-dark" onclick="copyToClipboard('{{ $code->key }}')"><i class="fas fa-copy"></i></button>
+                                <a href="/admin/codes/{{$code->id}}/delete" class="btn btn-danger" >Delete code</a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -42,10 +49,21 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+    <script> 
+    function copyToClipboard(id) {
+        navigator.clipboard.writeText(id);
+        document.execCommand('copy');
+        if(document.execCommand('copy')){
+
+  }
+
+    }
+ </script>
 @stop
 

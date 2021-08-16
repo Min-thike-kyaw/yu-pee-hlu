@@ -41,21 +41,33 @@ class FormController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request->all());
         if(session()->has('access_key')) {
             $request->validate([
-                'age' => 'required|integer',
+                
+                'email' => 'required|email',
                 'city' => 'required',
+
                 'acc_name' => 'required',
+                'acc_link' => 'required|url',
+
+                'age' => 'required|integer',
+                'age_you_want' => 'required',
+
                 'gender' => 'required|integer',
                 'gender_you_want' => 'required|integer',
-                'look_you_want' => 'required',
-                'email' => 'required|email',
+
+                'your_look' => 'required',
+                'other_looks_you_want' => 'required',
+
+                'your_skin_tone' => 'required|integer',
                 'skin_tone_you_want' => 'required|integer',
+                
                 'height_you_want' => 'required|integer',
+
                 'your_body_shape' => 'required|integer',
                 'body_shape_you_want' => 'required|integer',
-                'your_look' => 'required|integer',
-                'age_you_want' => 'required',
+                
                 ]
             );
             $request->your_height_by_inch = $this->heightToInches($request->feet, $request->inches);
@@ -89,19 +101,30 @@ class FormController extends Controller
     {
         $form = Form::where('code', $code)->first();
         $request->validate([
-            'age' => 'required|integer',
+                
+            'email' => 'required|email',
             'city' => 'required',
+
             'acc_name' => 'required',
+            'acc_link' => 'required|url',
+
+            'age' => 'required|integer',
+            'age_you_want' => 'required',
+
             'gender' => 'required|integer',
             'gender_you_want' => 'required|integer',
-            'look_you_want' => 'required',
-            'email' => 'required|email',
+
+            'your_look' => 'required',
+            'other_looks_you_want' => 'required',
+
+            'your_skin_tone' => 'required|integer',
             'skin_tone_you_want' => 'required|integer',
+            
             'height_you_want' => 'required|integer',
+
             'your_body_shape' => 'required|integer',
             'body_shape_you_want' => 'required|integer',
-            'your_look' => 'required|integer',
-            'age_you_want' => 'required',
+            
             ]
         );
         $request->your_height_by_inch = $this->heightToInches($request->feet, $request->inches);

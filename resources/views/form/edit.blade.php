@@ -21,13 +21,27 @@
             </div>
 
             <div class="form-group form-group-custom">
+            <label for="age_you_want">လိုချင်တဲ့လူရဲ့Age</label>
+               <input type="text" name="age_you_want" class="form-control" required value="{{$form->age_you_want}}"> 
+            </div>
+
+            <div class="form-group form-group-custom">
                 <label for="city">City</label>
                 <input type="text" name="city" class="form-control" required value="{{$form->city}}">
             </div>
             
             <div class="form-group form-group-custom">
-                <label for="acc_name">Acc Name</label>
+                <label for="acc_name">Fb Acc Name</label>
                 <input type="text" name="acc_name" class="form-control" value="{{$form->acc_name}}" required>
+            </div>
+            <div class="form-group form-group-custom">
+                <label for="acc_link">Acc Link</label>
+                <input type="text" name="acc_link" class="form-control" value="{{$form->acc_link}}" required>
+            </div>
+
+            <div class="form-group form-group-custom">
+                <label for="email">Email </label>
+                <input type="email" name="email" class="form-control" required value="{{$form->email}}">
             </div>
 
             <div class="form-group form-group-custom">
@@ -43,7 +57,7 @@
             </div>
 
             <div class="form-group form-group-custom">
-            <label for="gender_you_want">လိုချင်တဲ့ရည်းချားရဲ့gender *</label>
+            <label for="gender_you_want">လိုချင်တဲ့ရည်းချားရဲ့gender </label>
                 @foreach(config('form')['gender_you_want'] as $index => $gender_you_want)
                 <div class="form-check">
                     <input class="form-check-input" type="radio" value="{{$index}}" name="gender_you_want" id="gender" required <?php echo $index == $form->gender_you_want? "checked": ""?>>
@@ -55,17 +69,31 @@
             </div>
 
             <div class="form-group form-group-custom">
-                <label for="look_you_want">လိုချင်တဲ့ပုံစံကိုရေးပေးပါ </label>
-                <input type="text" name="look_you_want" class="form-control" required value="{{$form->look_you_want}}">
+                <label for="your_look">တခြား ကိုယ့်ရဲ့ ပုံစံလေးရေးပေးပါ </label>
+                <input type="text" name="your_look" class="form-control" value="{{$form->your_look}}" required placeholder="အရမ်းဟော့ ၊ ဆက်ဆီကျ ဘာညာပေါ့ ...">
             </div>
 
             <div class="form-group form-group-custom">
-                <label for="email">Email </label>
-                <input type="email" name="email" class="form-control" required value="{{$form->email}}">
+                <label for="other_looks_you_want">လိုချင်တဲ့ပုံစံကိုရေးပေးပါ </label>
+                <input type="text" name="look_you_want" class="form-control" required value="{{$form->other_looks_you_want}}">
             </div>
+            
+
+            
 
             <div class="form-group form-group-custom">
-            <label for="gender_you_want">Skin tone *</label>
+            <label for="gender_you_want">Skin tone </label>
+                @foreach(config('form')['your_skin_tone'] as $index => $your_skin_tone)
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" value="{{$index}}" name="your_skin_tone" id="gender" required <?php echo $index == $form->your_skin_tone? "checked": ""?>>
+                    <label class="form-check-label" for="gender">
+                        {{$your_skin_tone}}
+                    </label>
+                </div>
+                @endforeach
+            </div>
+            <div class="form-group form-group-custom">
+            <label for="gender_you_want">လိုချင်တဲ့ရည်းချားရဲ့ Skin tone </label>
                 @foreach(config('form')['skin_tone_you_want'] as $index => $skin_tone_you_want)
                 <div class="form-check">
                     <input class="form-check-input" type="radio" value="{{$index}}" name="skin_tone_you_want" id="gender" required <?php echo $index == $form->skin_tone_you_want? "checked": ""?>>
@@ -77,19 +105,7 @@
             </div>
 
             <div class="form-group form-group-custom">
-            <label for="gender_you_want">Height</label>
-                @foreach(config('form')['height_you_want'] as $index => $height_you_want)
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" value="{{$index}}" name="height_you_want" id="gender" required <?php echo $index == $form->height_you_want? "checked": ""?>>
-                    <label class="form-check-label" for="gender">
-                        {{$height_you_want}}
-                    </label>
-                </div>
-                @endforeach
-            </div>
-
-            <div class="form-group form-group-custom">
-            <label>Height</label>
+            <label>ကိုယ့်ရဲ့ အရပ်အမောင်းလေး ရွေးပေးပါ</label>
                 <div class="row">
                     <div class="col">
                         <select name="feet" class="form-control" required>
@@ -116,6 +132,20 @@
             </div>
 
             <div class="form-group form-group-custom">
+            <label for="gender_you_want">Height</label>
+                @foreach(config('form')['height_you_want'] as $index => $height_you_want)
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" value="{{$index}}" name="height_you_want" id="gender" required <?php echo $index == $form->height_you_want? "checked": ""?>>
+                    <label class="form-check-label" for="gender">
+                        {{$height_you_want}}
+                    </label>
+                </div>
+                @endforeach
+            </div>
+
+            
+
+            <div class="form-group form-group-custom">
             <label for="gender_you_want">Body Shape</label>
                 @foreach(config('form')['your_body_shape'] as $index => $your_body_shape)
                 <div class="form-check">
@@ -128,7 +158,7 @@
             </div>
 
             <div class="form-group form-group-custom">
-            <label for="gender_you_want">လိုချင်တဲ့လူရဲ့body shape *</label>
+            <label for="gender_you_want">လိုချင်တဲ့လူရဲ့body shape </label>
                 @foreach(config('form')['body_shape_you_want'] as $index => $body_shape_you_want)
                 <div class="form-check">
                     <input class="form-check-input" type="radio" value="{{$index}}" name="body_shape_you_want" id="gender" required <?php echo $index == $form->body_shape_you_want? "checked": ""?>>
@@ -139,21 +169,7 @@
                 @endforeach
             </div>
 
-            <div class="form-group form-group-custom">
-            <label for="gender_you_want">ကိုယ့်ရုပ်ရည်ခန့်မှန်းချက် *</label>
-                @foreach(config('form')['your_look'] as $index => $your_look)
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" value="{{$index}}" name="your_look" id="gender" required <?php echo $index == $form->your_look? "checked": ""?>>
-                    <label class="form-check-label" for="gender">
-                        {{$your_look}}
-                    </label>
-                </div>
-                @endforeach
-            </div>
-            <div class="form-group form-group-custom">
-            <label for="age_you_want">လိုချင်တဲ့လူရဲ့Age</label>
-               <input type="text" name="age_you_want" class="form-control" required value="{{$form->age_you_want}}"> 
-            </div>
+            
             <!-- <button type="button" class="btn btn-primary">Primary</button> -->
             <button type="submit" class="btn btn-primary">Update</button>
         </form>
