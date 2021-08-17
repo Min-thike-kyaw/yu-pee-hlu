@@ -36,9 +36,9 @@
 
            <p>Body Shape : {{$form->your_body_shape_text}}</p>
            <p>လိုချင်တဲ့လူရဲ့body shape : {{$form->partner_skin_tone}}</p>
-           
 
-            
+            <img src="{{asset('images/'.$form->photo)}}" width="1000" alt="">
+    
         </div>
     </div>
 @stop

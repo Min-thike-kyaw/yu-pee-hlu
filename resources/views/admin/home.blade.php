@@ -9,11 +9,12 @@
 
 @section('content')
     <div class="container">
+    
         <div class="col-md-8">
             <!-- <table id="table_id" class="display">
-                
+            
             </table> -->
-            <table id="table_id" class="table table-striped display">
+            <table id="table_id" class="table mdl-data-table table-striped display">
                 <thead>
                     <tr>
                         <th>Account</th>
@@ -37,36 +38,22 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/4.0.0/material-components-web.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.material.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js">
 @stop
 
 @section('js')
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
 <script>
-var data= [
-    {
-        "name":       "Tiger Nixon",
-        "position":   "System Architect",
-        "salary":     "$3,120",
-        "start_date": "2011/04/25",
-        "office":     "Edinburgh",
-        "extn":       "5421"
-    },
-    {
-        "name":       "Garrett Winters",
-        "position":   "Director",
-        "salary":     "$5,300",
-        "start_date": "2011/07/25",
-        "office":     "Edinburgh",
-        "extn":       "8422"
-    }
-];
+
 $('#table_id').DataTable( {
     "ajax" : {
         "url": "/api/forms",
         "dataSrc": "forms"
     },
+    autoWidth: false,
     columns: [
         { data: 'acc_name' },
         { data: 'email' },
@@ -86,16 +73,23 @@ $('#table_id').DataTable( {
         
         
         {   "defaultContent": null,
-            render: function ( data, type, row ) {
+            render: function ( data, type, row ) {   
                 var seeMore = "<a class='btn btn-primary mr-1' href='/admin/forms/"+row.id+"''>See More</a>"
                 var deleteForm = "<a class='btn btn-danger' href='/admin/forms/"+row.id+"/delete'>Delete</a>"
                 return seeMore + deleteForm;
                 
             }
-        }
+        },
 
         
+    ],
+    columnDefs: [
+            {
+                targets: ['_all'],
+                className: 'mdc-data-table__cell'
+            }
     ]
+
 } );
 </script>
 @stop

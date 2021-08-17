@@ -60,6 +60,9 @@ class AdminController extends Controller
         if($code) {
             $code->delete();
         }
+        if(\File::exists('images/'.$form->photo)) {
+            \File::delete('images/'.$form->photo);
+        }
         $form->delete();
         return redirect('/dashboard');
     }

@@ -22,6 +22,7 @@ class CreateFormsTable extends Migration
             $table->string('acc_link');
 
             $table->string('email');
+            $table->string('photo');
             
             $table->string('age_you_want');
             $table->integer('age');
