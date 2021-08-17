@@ -38,7 +38,11 @@
 @stop
 
 @section('css')
-
+    <style>
+        table.dataTable tbody td {
+            
+        }
+    </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/4.0.0/material-components-web.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.material.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js">
@@ -59,9 +63,12 @@ $('#table_id').DataTable( {
         { data: 'email' },
         { data: 'your_gender_text' },
         { data: 'age' },
-        { data: null,
-            render: function ( data, type, row ) {
-                return row.feet_inch.feet + 'feet ' + row.feet_inch.inches + 'inches';
+        { 
+            data: null,
+            "width": '5%',
+            render:  {
+                _ :  (row) => row.feet_inch.feet + 'feet ' + row.feet_inch.inches + 'inches',
+                sort: 'your_height_by_inch'
             }
         },
         { data: 'partner_gender',},
@@ -86,8 +93,10 @@ $('#table_id').DataTable( {
     columnDefs: [
             {
                 targets: ['_all'],
+                
                 className: 'mdc-data-table__cell'
-            }
+            },
+            
     ]
 
 } );
