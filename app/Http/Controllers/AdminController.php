@@ -28,11 +28,13 @@ class AdminController extends Controller
         return view('admin.home',["forms" => Form::all()->sortDesc()]);
     }
 
-    public function formDetail($id)
-    {
-        // dd($id);
-        return view('admin.form_detail',["form" => Form::find($id)]); 
-    }
+
+    //used modal instead of it
+    // public function formDetail($id)
+    // {
+    //     // dd($id);
+    //     return view('admin.form_detail',["form" => Form::find($id)]); 
+    // }
     public function showCodes()
     {
         // dd($id);

@@ -28,7 +28,7 @@ Route::post('/forms', 'FormController@store');
 Auth::routes();
 
 Route::get('/dashboard', 'AdminController@index');
-Route::get('/admin/forms/{id}', 'AdminController@formDetail');
+// Route::get('/admin/forms/{id}', 'AdminController@formDetail');
 Route::get('/admin/forms/{id}/delete', 'AdminController@deleteForm');
 Route::get('/admin/codes', 'AdminController@showCodes');
 Route::post('/admin/codes', 'AdminController@generateCode');
